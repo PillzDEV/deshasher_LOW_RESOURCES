@@ -48,7 +48,6 @@ def main():
     else:
         print(f"{Fore.RED}Password not found :({Fore.RESET}")
         input(f"{Fore.CYAN}Press {Fore.RED}[ENTER]{Fore.CYAN} to restart the program{Fore.RESET}")
-        os.system('cls' if os.name == 'nt' else 'clear')
         main()
 
 def detect_hash_type(hash_input: str) -> callable:
