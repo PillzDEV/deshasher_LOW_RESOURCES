@@ -43,6 +43,7 @@ def main():
             f.write(f"\nHash: {hash_input} Salt: {salt} -> {coincidence}")
         print(f"{Fore.GREEN}Password found:{Fore.RESET} {coincidence} {Fore.RED}| {Fore.YELLOW}In {Fore.WHITE}{time_elapsed}s{Fore.RED} | {Fore.RESET} The password has been saved in passwords.txt")
         input(f"{Fore.CYAN}Press {Fore.RED}[ENTER]{Fore.CYAN} to restart the program{Fore.RESET}")
+        main()
 
     else:
         print(f"{Fore.RED}Password not found :({Fore.RESET}")
@@ -87,4 +88,3 @@ def bruteforce_hash(hash_type: callable, hash_input: str, salt: None, active_dic
 
 if __name__ == '__main__':
     main()
-
