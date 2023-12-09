@@ -25,6 +25,12 @@ def main():
         salt = salt_input.strip()
         
     active_dict = input(f"{Fore.CYAN}Dict path (You can drop here your dict):{Fore.RESET} ")
+    if os.path.exists(active_dict):
+        pass
+    else:
+        print(f"{Fore.RED}Invalid path: The specified path does not exist.{Fore.RESET}")
+        print("")
+        main()
 
     hash_type = detect_hash_type(hash_input)
 
@@ -36,6 +42,7 @@ def main():
         with open('passwords.txt', 'a+') as f:
             f.write(f"\nHash: {hash_input} Salt: {salt} -> {coincidence}")
         print(f"{Fore.GREEN}Password found:{Fore.RESET} {coincidence} {Fore.RED}| {Fore.YELLOW}In {Fore.WHITE}{time_elapsed}s{Fore.RED} | {Fore.RESET} The password has been saved in passwords.txt")
+        input(f"{Fore.CYAN}Press {Fore.RED}[ENTER]{Fore.CYAN} to restart the program{Fore.RESET}")
 
     else:
         print(f"{Fore.RED}Password not found :({Fore.RESET}")
